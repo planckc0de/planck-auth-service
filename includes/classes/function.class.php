@@ -13,6 +13,18 @@
             self::$cmn = $GLOBALS['auth_common'];
         }
 
+        public function userLogout($logout) {
+            if (self::$cmn->isDataValid($logout->getValue('auth_login_ulid'))) {
+                $id = $logout->getValue('auth_login_ulid');
+                $query = 'UPDATE `auth_user_login` SET `user_session_active` = 0, `user_logout_time` = CURRENT_TIME() WHERE `user_ulid` = ?';
+                $sql = self::$con->prepare($query);
+                $sql->execute([ $id ]);
+                return TRUE;
+            } else{
+                return FALSE;
+            }
+        }
+
         public function userLogin($login) {
 
             if ( self::$cmn->isDataValid($login->getValue('auth_user')) && 
@@ -42,7 +54,6 @@
                     } else {
                         return FALSE;
                     }
-
             }
         }
 

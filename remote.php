@@ -1,12 +1,13 @@
 <?php 
 $post = [
-    'request' => 'register',
+    'request' => 'logout',
     'requestid' => 'treq2',
     'apitoken' => 'NODTOS8C98VEDVIJ',
     'apikey' => 'WNSdlsr0OZPzRlgl9i4YjTfhmE5vxQDceXMiPmUds0pcn4GAZRLksexIZ2xEbUE3',
-    'auth_username' => 'test7',
+    'auth_username' => 'test',
     'auth_password' => '1234',
-    'auth_email'   => 'test7@test.com',
+    'auth_email'   => 'test@planckstudio.in',
+    'auth_lid' => 'L0DMVtZUyH',
     'default_service_id' => 'Sljx0VVIVM'
 ];
 

@@ -5,3 +5,9 @@
 ```
 Api Endpoint  - https://api.planckstudio.in/auth/v1/
 ```
+
+### Functions
+
+* Register
+* Login
+* Logout

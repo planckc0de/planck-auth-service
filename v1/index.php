@@ -31,6 +31,9 @@
                 case 'register':
                     authRegister($servicesid, $requestid, $d_access);
                     break;
+                case 'logout':
+                    authLogout();
+                    break;
                 default:
                     authDefault();
                     break;
@@ -131,6 +134,46 @@
 
         echo authResponce($responce);
 
+    }
+
+    function authLogout() {
+        $dbc = $GLOBALS['dbc'];
+        $auth_data = $GLOBALS['auth_data'];
+        $auth_common = $GLOBALS['auth_common'];
+        $auth_fun = $GLOBALS['auth_fun'];
+
+        $responce['request'] = 'logout';
+
+        if ( isset( $_POST['auth_lid'] )) {
+
+            $auth_data->setValue('auth_login_ulid', $_POST['auth_lid']);
+
+            $log_responce = $auth_fun->UserLogout($auth_data);
+
+            if ( $log_responce ) {
+                $responce['code'] = 200;
+                $responce['status'] = 'success';
+                $responce['action'] = NULL;
+                $responce['message'] = 'User logout';
+            } else {
+                $responce['code'] = 401;
+                $responce['status'] = 'failed';
+                $responce['message'] = 'Something goes wrong';
+            }
+            
+        } else {
+            $responce['code'] = 400;
+            $responce['status'] = 'failed';
+            $responce['message'] = 'Unknown loginid';
+        }
+
+        echo authResponce($responce);
+    }
+
+    function authDefault() {
+        $responce['code'] = 401;
+        $responce['status'] = 'failed';
+        $responce['message'] = 'Unknown request';
     }
 
     function authResponce($responce_data) {

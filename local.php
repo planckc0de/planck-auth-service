@@ -1,11 +1,12 @@
 <?php 
 $post = [
-    'request' => 'register',
+    'request' => 'logout',
     'requestid' => 'treq2',
     'apitoken' => 'B8EDMSKRMUPSTOEB',
     'apikey' => 'kP4k6c3ah07YP2Qq9ofksSQ6x8Z8gZzK0760vHjGRdjLAZ7NxTIw7SOvjJLbiBMq',
     'auth_username' => 'test5',
     'auth_password' => '1234',
+    'auth_lid' => 'LKvEp8wFRt',
     'auth_email'   => 'test5@test.com',
 ];
 
